@@ -1,2 +1,2 @@
 # js-forum
-STILL IN EASLY DEVELOPMENT
+Still in early development
