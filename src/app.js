@@ -18,7 +18,7 @@ app.use(function(err, req, res, next) {
     res.status = 500;
     fs.readFile('./public_html/500.html', 'utf8', function (err, data) {
         if (err) {
-            console.warn("Failed to read 500 page!")
+            console.warn("Failed to read 500 error page!")
             console.warn(e)
             return;
         }
@@ -43,7 +43,6 @@ try {
     require('../src/license.js')(app);
     require('../src/api.js')(app);
     require('../src/configure.js')(app);
-    // require('../src/assets.js')(app);
 } catch (e) {
     console.error('Error in module: ')
     console.error(e.stack)
@@ -59,7 +58,7 @@ app.get('*', function (req, res) {
 
     fs.readFile('./public_html/404.html', 'utf8', function (err, data) {
         if (err) {
-            console.warn("Failed to read 404 page!")
+            console.warn("Failed to read 404 error page!")
             console.warn(e)
             return;
         }
