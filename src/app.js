@@ -72,7 +72,7 @@ try {
     console.log(`Listening on port ${config.port}`)
     console.log(`You can open your forums at http://localhost:${config.port}/`)
 } catch (e) {
-    console.error(`Failed to listen!`)
+    console.error(`Failed to listen on port ${config.port}!`)
     console.error(e)
     process.exit(-1)
 }
