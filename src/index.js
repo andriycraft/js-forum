@@ -33,7 +33,7 @@ module.exports = function (app) {
             margin: 0;
         }
         center {
-            margin-top: 15%;
+            margin-top: 10%;
         }
 
         h2, h3 {
@@ -58,12 +58,12 @@ module.exports = function (app) {
         </head>
         <body>
             <center>
-                <img src="http://cdn.onlinewebfonts.com/svg/img_118367.png" alt="Setup icon from onlinewebfonts.com">
-                <br>
+                <img style="width: 150px; height: 150px;" src="http://cdn.onlinewebfonts.com/svg/img_118367.png" alt="Setup icon from onlinewebfonts.com">
+                <br><br>
                 <h2 class="title">Welcome to JS-Forums Setup!</h2>
                 <h3 class="sub">Your forum is not configured yet!</h3>
                 <br>
-                <button class="next">
+                <button onclick="location.href='./softwarelicense'" class="next">
                 <p>Ok, let me setup it!</p>
                 </button>
                 <br>

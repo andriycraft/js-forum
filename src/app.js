@@ -12,6 +12,21 @@ try {
 }
 const config = require("../config.json")
 
+
+app.use(function(err, req, res, next) {
+    console.error(err.stack);
+    res.status = 500;
+    fs.readFile('./public_html/500.html', 'utf8', function (err, data) {
+        if (err) {
+            console.warn("Failed to read 500 page!")
+            console.warn(e)
+            return;
+        }
+        res.end(data.replace("${name}", name).replace("${version}", version));
+    });
+});
+  
+
 try {
     const lang2 = require("../lang.json")
 } catch (e) {
@@ -20,9 +35,15 @@ try {
 }
 const lang = require("../lang.json")
 
+
+
 try {
     require('../src/index.js')(app, config, lang);
     require('../src/robots.js')(app, config);
+    require('../src/license.js')(app);
+    require('../src/api.js')(app);
+    require('../src/configure.js')(app);
+    // require('../src/assets.js')(app);
 } catch (e) {
     console.error('Error in module: ')
     console.error(e.stack)
