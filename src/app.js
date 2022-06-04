@@ -2,16 +2,30 @@ const server = require('express');
 const app = server();
 const name = "js-forum";
 const version = "1.0.0"
-const config = require("../config.json")
 const fs = require('fs')
-require('../src/index.js')(app);
-require('../src/robots.js')(app);
 
 try {
-    console.debug(config)
+    const config2 = require("../config.json")
 } catch (e) {
     console.error("Failed to read config, exiting...")
     process.exit(-1)
+}
+const config = require("../config.json")
+
+try {
+    const lang2 = require("../lang.json")
+} catch (e) {
+    console.error("Failed to read lang files, exiting...")
+    process.exit(-1)
+}
+const lang = require("../lang.json")
+
+try {
+    require('../src/index.js')(app, config, lang);
+    require('../src/robots.js')(app, config);
+} catch (e) {
+    console.error('Error in module: ')
+    console.error(e.stack)
 }
 
 app.use('*', function (req, res, next) {
@@ -35,6 +49,8 @@ app.get('*', function (req, res) {
 
 try {
     app.listen(config.port)
+    console.log(`Listening on port ${config.port}`)
+    console.log(`You can open your forums at http://localhost:${config.port}/`)
 } catch (e) {
     console.error(`Failed to listen!`)
     console.error(e)
