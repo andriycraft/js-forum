@@ -1,3 +1,5 @@
 { 
-    "port": 80
+    "port": 80,
+    "forumname": "Another js forum",
+    "robots_txt_content": "User-agent: *\nAllow: /"
 }
