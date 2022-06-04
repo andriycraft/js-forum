@@ -19,6 +19,7 @@ const names = [
     "everything-is-good"
 ]
 let namegenerator = names[Math.floor(Math.random() * names.length)]
+
 module.exports = function (app) {
 
     app.get('/configure', function(req, res){
@@ -42,10 +43,6 @@ module.exports = function (app) {
 
         h3 {
             margin-top: 30px;
-        }
-
-        .sub {
-            color: gray;
         }
 
         input {

@@ -15,14 +15,6 @@ fs.readFile('./public_html/__headerinclude.html', 'utf8', function (err, data) {
 module.exports = function (app) {
 
     app.get('/', function (req, res) {
-
-        switch (req.params.id) {
-            case 1:
-                res.end(`
-                
-                
-                `)
-            default:
                 res.end(`
         <!DOCTYPE HTML>
         <head>
@@ -32,6 +24,7 @@ module.exports = function (app) {
             padding: 0;
             margin: 0;
         }
+        
         center {
             margin-top: 10%;
         }
@@ -72,7 +65,6 @@ module.exports = function (app) {
             </center>
         </body>
         `);
-                break;
         }
     });
 }
